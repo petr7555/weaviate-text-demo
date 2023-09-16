@@ -39,12 +39,12 @@ schema = {
         },
     ],
     "moduleConfig": {
-        "generative-openai": {},
         "text2vec-openai": {
             "model": "ada",
             "modelVersion": "002",
             "type": "text"
         },
+        "generative-openai": {},
     },
 }
 

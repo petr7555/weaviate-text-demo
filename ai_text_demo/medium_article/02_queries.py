@@ -11,9 +11,10 @@ client = weaviate.Client(
     }
 )
 
+print("Query two objects")
 res = (
     client.query.get("JeopardyQuestion",
-                     ["question", "answer", "category"])
+                     ["jeopardyQuestion", "jeopardyAnswer", "jeopardyCategory"])
     .with_additional(["id"])
     .with_limit(2)
     .do()
@@ -25,7 +26,7 @@ print("Vector search")
 res = (
     client.query.get(
         "JeopardyQuestion",
-        ["question", "answer", "category"])
+        ["jeopardyQuestion", "jeopardyAnswer", "jeopardyCategory"])
     .with_near_text({"concepts": "animals"})
     .with_limit(2)
     .do()
@@ -37,12 +38,12 @@ print("Question answering")
 res = (
     client.query
     .get("JeopardyQuestion", [
-        "question",
+        "jeopardyAnswer",
         "_additional {answer {hasAnswer property result} }"
     ])
     .with_ask({
         "question": "Which animal was mentioned in the title of the Aesop fable?",
-        "properties": ["answer"]
+        "properties": ["jeopardyAnswer"]
     })
     .with_limit(1)
     .do()
@@ -53,10 +54,10 @@ print("Generative search")
 res = (
     client.query.get(
         "JeopardyQuestion",
-        ["question", "answer"])
+        ["jeopardyQuestion", "jeopardyAnswer"])
     .with_near_text({"concepts": ["animals"]})
     .with_limit(1)
-    .with_generate(single_prompt="Generate a question to which the answer is {answer}")
+    .with_generate(single_prompt="Generate a question to which the answer is {jeopardyAnswer}")
     .do()
 )
 

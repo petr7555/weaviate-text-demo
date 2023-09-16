@@ -69,9 +69,9 @@ client.batch.configure(batch_size=200,  # Specify batch size
 with client.batch as batch:
     for _, row in df.iterrows():
         question_object = {
-            "category": row.category,
-            "question": row.question,
-            "answer": row.answer,
+            "jeopardyCategory": row.category,
+            "jeopardyQuestion": row.question,
+            "jeopardyAnswer": row.answer,
         }
         batch.add_data_object(
             question_object,
