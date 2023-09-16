@@ -1,0 +1,102 @@
+{
+  "env": {
+    "browser": true,
+    "jest/globals": true,
+    "node": true
+  },
+  "plugins": ["react-hooks", "jest", "prettier"],
+  "extends": [
+    "airbnb",
+    "plugin:jest/recommended",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "overrides": [
+    {
+      "parser": "@typescript-eslint/parser",
+      "files": ["**/*.ts", "**/*.tsx"],
+      "plugins": ["@typescript-eslint"],
+      "extends": [
+        "plugin:import/typescript",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended"
+      ],
+      "rules": {
+        "@typescript-eslint/interface-name-prefix": ["off"],
+        "@typescript-eslint/no-unused-vars": ["warn"],
+        "@typescript-eslint/triple-slash-reference": ["off"]
+      }
+    }
+  ],
+  "rules": {
+    "no-unused-vars": ["off"],
+    "spaced-comment": ["error", "always", { "markers": ["/"] }],
+    "implicit-arrow-linebreak": ["off"],
+    "import/prefer-default-export": ["warn"],
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": ["**/*.test.ts"] }],
+    "indent": ["off"],
+    "object-curly-newline": ["off"],
+    "operator-linebreak": ["off"],
+    "no-underscore-dangle": ["off"],
+    "import/extensions": ["off"],
+    "arrow-parens": ["off"],
+    "padded-blocks": ["off"],
+    "no-plusplus": ["off"],
+    "no-shadow": ["off"],
+    "jsx-a11y/label-has-associated-control": ["off"],
+    "react/button-has-type": ["off"],
+    "react/jsx-one-expression-per-line": ["off"],
+    "react/jsx-props-no-spreading": ["off"],
+    "react/jsx-filename-extension": [
+      "warn",
+      {
+        "extensions": [".js", ".jsx", ".tsx"]
+      }
+    ],
+    "max-len": [
+      "warn",
+      {
+        "code": 100,
+        "tabWidth": 2,
+        "ignoreComments": false,
+        "ignoreTrailingComments": true,
+        "ignoreUrls": true,
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true,
+        "ignoreRegExpLiterals": true
+      }
+    ],
+    "prettier/prettier": ["error", {
+      "printWidth": 100,
+      "tabWidth": 2,
+      "useTabs": false,
+      "semi": true,
+      "singleQuote": true,
+      "quoteProps": "as-needed",
+      "jsxSingleQuote": false,
+      "trailingComma": "all",
+      "bracketSpacing": true,
+      "jsxBracketSameLine": false
+    }],
+    "react/require-default-props": "off",
+    "react/function-component-definition": ["error", {
+      "namedComponents": "arrow-function",
+      "unnamedComponents": "arrow-function"
+    }],
+    "react/react-in-jsx-scope": "off",
+    "no-restricted-imports": [
+      "error",
+      {
+        "paths": [
+          {
+            "name": "react",
+            "importNames": [
+              "default"
+            ],
+            "message": "Please use named React imports."
+          }
+        ]
+      }
+    ]
+  }
+}
