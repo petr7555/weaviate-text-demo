@@ -108,3 +108,22 @@ Based on https://python.langchain.com/docs/integrations/vectorstores/weaviate.
     - Loads text and splits it into smaller chunks. Creates Weaviate vectorstore from the chunks, adding "source"
       metadata to each chunk. The chunks are embedded using OpenAI model.
     - Answers questions and provides the sources.
+
+### 8. LangChain question answering
+
+Based on https://python.langchain.com/docs/use_cases/question_answering/.
+
+- create `.env` file with `OPENAI_API_KEY=YOUR_OPENAI_API_KEY`
+    - you can get it from https://platform.openai.com/
+- `poetry run python ai_text_demo/langchain_question_answering/qa_over_blogpost.py`
+    - Creates whole QA chain using `VectorstoreIndexCreator`, which uses OpenAI and ChromaDB.
+- `poetry run python ai_text_demo/langchain_question_answering/qa_over_blogpost_piece_by_piece.py`
+    - Like the previous by with fewer abstractions. Also uses custom prompts and returns source documents and citations.
+
+### 9. LangChain chatbot
+
+Based on https://python.langchain.com/docs/use_cases/chatbots.
+
+- create `.env` file with `OPENAI_API_KEY=YOUR_OPENAI_API_KEY`
+    - you can get it from https://platform.openai.com/
+- `poetry run python ai_text_demo/langchain_chatbot/chat.py`
