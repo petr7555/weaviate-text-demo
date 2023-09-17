@@ -79,16 +79,32 @@ Based on https://weaviate.io/blog/ingesting-pdfs-into-weaviate.
 Based on https://unstructured-io.github.io/unstructured/bricks/staging.html#stage-for-weaviate
 and https://github.com/Unstructured-IO/unstructured/blob/main/examples/weaviate/weaviate.ipynb.
 
+- `docker compose -f docker-compose-weaviate.yml up -d`
 - `poetry run python ai_text_demo/weaviate_brick/01_insert_data.py`
+    - Creates a Weaviate "UnstructuredDocument" class using `create_unstructured_weaviate_class` helper function from
+      the `unstructured` library, partitions PDFs into elements using `unstructured`, transforms the elements into
+      objects (containing also filename and the page number) using `stage_for_weaviate` function from the `unstructured`
+      library, and inserts the objects into Weaviate.
 - `poetry run python ai_text_demo/weaviate_brick/02_queries.py`
+    - Queries the database to find two objects related to "document understanding".
 
 ### 6. Basic PDF read
 
 - `poetry run python ai_text_demo/pdf_read/main.py`
+    - Extracts text from PDF using `pypdf` library.
 
 ### 7. LangChain Weaviate
 
 Based on https://python.langchain.com/docs/integrations/vectorstores/weaviate.
 
+- `docker compose -f docker-compose-weaviate.yml up -d`
+- create `.env` file with `OPENAI_API_KEY=YOUR_OPENAI_API_KEY`
+    - you can get it from https://platform.openai.com/
 - `poetry run python ai_text_demo/langchain_weaviate/similarity_search.py`
+    - Loads and splits text, and creates Weaviate vectorstore from it by embedding it using OpenAI model.
+    - Performs similarity search, similarity search with score (cosine distance), and MMR search (also optimizing for
+      diversity).
 - `poetry run python ai_text_demo/langchain_weaviate/question_answering_with_sources.py`
+    - Loads text and splits it into smaller chunks. Creates Weaviate vectorstore from the chunks, adding "source"
+      metadata to each chunk. The chunks are embedded using OpenAI model.
+    - Answers questions and provides the sources.

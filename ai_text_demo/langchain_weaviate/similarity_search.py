@@ -23,11 +23,11 @@ docs = db.similarity_search(query)
 
 print(docs[0].page_content)
 
-print("Similarity search with score:")
+print("\nSimilarity search with score:")
 
 docs = db.similarity_search_with_score(query, by_text=False)
 print(docs[0])
 
-print("MMR:")
+print("\nMMR:")
 retriever = db.as_retriever(search_type="mmr")
 print(retriever.get_relevant_documents(query)[0])
