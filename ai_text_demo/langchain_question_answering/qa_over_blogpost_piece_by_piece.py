@@ -2,11 +2,12 @@ import logging
 
 import dotenv
 from langchain import PromptTemplate
-from langchain.chains import RetrievalQA
+from langchain.chains import RetrievalQA, ConversationalRetrievalChain
 from langchain.chains.question_answering import load_qa_chain
 from langchain.chat_models import ChatOpenAI
 from langchain.document_loaders import WebBaseLoader
 from langchain.embeddings import OpenAIEmbeddings
+from langchain.memory import ConversationSummaryMemory
 from langchain.retrievers import SVMRetriever
 from langchain.retrievers.multi_query import MultiQueryRetriever
 from langchain.text_splitter import RecursiveCharacterTextSplitter
@@ -113,3 +114,9 @@ qa_chain = RetrievalQA.from_chain_type(llm, retriever=vectorstore.as_retriever()
 result = qa_chain({"query": question})
 print("Or pass the chain_type to RetrievalQA")
 print(result["result"])
+
+# Step 6. Chat
+memory = ConversationSummaryMemory(llm=llm, memory_key="chat_history", return_messages=True)
+qa = ConversationalRetrievalChain.from_llm(llm, retriever=vectorstore.as_retriever(), memory=memory, verbose=True)
+print(qa("How do agents use Task decomposition?"))
+print(qa("What are the various ways to implement memory to support it?"))
