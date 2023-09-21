@@ -134,3 +134,25 @@ Based on https://python.langchain.com/docs/use_cases/chatbots.
     - Unpacks what goes under the hood with `ConversationChain` by creating a chain with custom memory and prompt.
 - `poetry run python ai_text_demo/langchain_chatbot/04_chat_retrieval.py`
     - Uses `ConversationalRetrievalChain` to chat with a blog post.
+
+### 10. LangChain cite sources
+
+Based on https://python.langchain.com/docs/use_cases/question_answering/how_to/qa_citations.
+
+- create `.env` file with `OPENAI_API_KEY=YOUR_OPENAI_API_KEY`
+    - you can get it from https://platform.openai.com/
+- `poetry run python ai_text_demo/langchain_cite_sources/main.py`
+    - Uses `create_citation_fuzzy_match_chain` to extract citations from text (not just source documents).
+
+### 11. LangChain LLMs vs chat models
+
+Based on https://python.langchain.com/docs/modules/model_io/models/llms/,
+https://python.langchain.com/docs/modules/model_io/models/chat/ and
+https://python.langchain.com/docs/modules/model_io/models/.
+
+- create `.env` file with `OPENAI_API_KEY=YOUR_OPENAI_API_KEY`
+    - you can get it from https://platform.openai.com/
+- `poetry run python ai_text_demo/langchain_llm_vs_chat_models/llm.py`
+  - string in -> string out
+- `poetry run python ai_text_demo/langchain_llm_vs_chat_models/chat_model.py`
+  - messages in -> messages out
