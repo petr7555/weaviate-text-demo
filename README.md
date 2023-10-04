@@ -156,3 +156,12 @@ https://python.langchain.com/docs/modules/model_io/models/.
   - string in -> string out
 - `poetry run python ai_text_demo/langchain_llm_vs_chat_models/chat_model.py`
   - messages in -> messages out
+
+### 11. LangChain Store and reference chat history
+
+Based on https://python.langchain.com/docs/use_cases/question_answering/how_to/chat_vector_db.
+
+- create `.env` file with `OPENAI_API_KEY=YOUR_OPENAI_API_KEY`
+    - you can get it from https://platform.openai.com/
+- `poetry run python ai_text_demo/langchain_store_chat_history/main.py`
+  - Shows how to use chat history and `ConversationalRetrievalChain`.
