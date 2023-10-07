@@ -126,13 +126,13 @@ Based on https://python.langchain.com/docs/use_cases/chatbots.
 
 - create `.env` file with `OPENAI_API_KEY=YOUR_OPENAI_API_KEY`
     - you can get it from https://platform.openai.com/
-- `poetry run python ai_text_demo/langchain_chatbot/01_quickstart.py`
+- `poetry run python ai_text_demo/langchain_chatbots/01_quickstart.py`
     - Shows plain chat model with one and multiple messages and `ConversationChain` with built-in memory.
-- `poetry run python ai_text_demo/langchain_chatbot/02_memory.py`
+- `poetry run python ai_text_demo/langchain_chatbots/02_memory.py`
     - Shows how to use memories.
-- `poetry run python ai_text_demo/langchain_chatbot/03_conversation.py`
+- `poetry run python ai_text_demo/langchain_chatbots/03_conversation.py`
     - Unpacks what goes under the hood with `ConversationChain` by creating a chain with custom memory and prompt.
-- `poetry run python ai_text_demo/langchain_chatbot/04_chat_retrieval.py`
+- `poetry run python ai_text_demo/langchain_chatbots/04_chat_retrieval.py`
     - Uses `ConversationalRetrievalChain` to chat with a blog post.
 
 ### 10. LangChain cite sources
