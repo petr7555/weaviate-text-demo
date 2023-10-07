@@ -165,3 +165,12 @@ Based on https://python.langchain.com/docs/use_cases/question_answering/how_to/c
     - you can get it from https://platform.openai.com/
 - `poetry run python ai_text_demo/langchain_store_chat_history/main.py`
   - Shows how to use chat history and `ConversationalRetrievalChain`.
+
+### 12. ChatPDF API
+
+- create `.env` file with `CHATPDF_API_KEY=YOUR_CHATPDF_API_KEY`
+    - you can get it from https://www.chatpdf.com/docs/api/backend
+- `poetry run python ai_text_demo/chatpdf/upload_pdf.py`
+  - Uploads PDF to ChatPDF API and prints a source ID.
+- `poetry run python ai_text_demo/chatpdf/chat_with_pdf.py <SOURCE_ID>`
+  - Chats with the uploaded PDF.
