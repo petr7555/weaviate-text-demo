@@ -27,7 +27,7 @@ res = (
     client.query.get(
         "JeopardyQuestion",
         ["jeopardyQuestion", "jeopardyAnswer", "jeopardyCategory"])
-    .with_near_text({"concepts": "animals"})
+    .with_near_text({"concepts": ["animals"]})
     .with_limit(2)
     .do()
 )
