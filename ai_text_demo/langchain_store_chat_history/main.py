@@ -193,7 +193,7 @@ print("get_chat_history Function")
 
 
 # The default is "Human:{human}\nAssistant:{ai}".
-def get_chat_history(inputs: tuple[str, str]) -> str:
+def get_chat_history(inputs: list[tuple[str, str]]) -> str:
     res = []
     for human, ai in inputs:
         res.append(f"Human:{human}\nAI:{ai}")
