@@ -1,3 +1,4 @@
 .env
 ai_text_demo/ingesting_pdf_nordic_trustee/data/pdfs/
 volumes/
+__pycache__/
